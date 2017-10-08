@@ -6,6 +6,8 @@ as testing instructions are located at http://amzn.to/1LzFrj6
 For additional samples, visit the Alexa Skills Kit Getting Started guide at
 http://amzn.to/1LGWsLG
 """
+from __future__ import print_function
+
 from company_tickers import COMPANY_TICKERS
 
 import websocket
@@ -47,12 +49,8 @@ def get_stock_dict(ticker):
 
     return stock_dict
 
-def get_close_price():
-    return get_stock_dict()["Close"]
-
-
-from __future__ import print_function
-
+def get_close_price(ticker):
+    return get_stock_dict(ticker)["Close"]
 
 def lambda_handler(event, context):
     """ Route the incoming request based on type (LaunchRequest, IntentRequest,
@@ -151,23 +149,25 @@ def get_welcome_response():
 def get_stock_price_in_session(intent, session):
     card_title = intent['name']
     session_attributes = {}
-    should_end_session = False
+
 
     if 'Company' in intent['slots']:
         company = intent['slots']['Company']['value']
         if company.upper() in COMPANY_TICKERS:
-            stock_price = get_stock_dict(COMPANY_TICKERS[company])
-            speech_output = "The stock price of " + company + " is " + stock_price + " dollars."
-            reprompt_text = "Please ask for a stock price by saying, " \
-                            "what is the stock price of Nasdaq"
+            stock_price = get_close_price(COMPANY_TICKERS[company.upper()])
+            speech_output = "The stock price of " + company + " is " + str(stock_price) + " dollars."
+            reprompt_text = None
+            should_end_session = True
         else:
             speech_output = "I'm not sure what that company is. Please try again."
             reprompt_text = "Please ask for a stock price by saying, " \
                             "what is the stock price of Nasdaq"
+            should_end_session = False
     else:
         speech_output = "I'm not sure what that company is. Please try again."
         reprompt_text = "Please ask for a stock price by saying, " \
                         "what is the stock price of Nasdaq"
+        should_end_session = False
 
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))

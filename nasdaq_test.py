@@ -23,7 +23,7 @@ def on_open(ws):
         ws.close()
     threading.Thread(target=run).start()
 
-def main():
+def get_stock_dict():
     parser = argparse.ArgumentParser(description='gettin some market data')
     parser.add_argument('--start_date', required=True, help="Enter a valid start date in YYYYMMDD format")
     parser.add_argument('--end_date', required=True, help="Enter a valid end date in YYYYMMDD format")
@@ -51,7 +51,7 @@ def main():
         return stock_dict
 
 def get_close_price():
-    return main()["Close"]
+    return get_stock_dict()["Close"]
         
 
 if __name__ == "__main__":
