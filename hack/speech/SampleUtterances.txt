@@ -1,15 +1,50 @@
-PriceGenerator price {Ticker} {Date}
-PriceGenerator price {Ticker}
-PriceGenerator price of {Ticker} {Date}
-PriceGenerator price of {Ticker}
-ResistanceGenerator get resistance for {Ticker}
-ResistanceGenerator what is the resistance for {Ticker}
-ResistanceGenerator get resistance for {Ticker} {Date}
-SupportGenerator get Support for {Ticker}
-SupportGenerator what is the Support for {Ticker}
-SupportGenerator get Support for {Ticker} {Date}
-StockGenerator give me similar Stocks to {Ticker}
-StockGenerator recommend me similar Stocks to {Ticker}
-PortfolioGenerator get my Portfolio Summary
-PortfolioGenerator get my Daily Portfolio Summary
-PortfolioGenerator tell me my Portfolio Summary
+StockPriceIntent stock price {Company}
+StockPriceIntent stock price of {Company}
+StockPriceIntent price of {Company}
+StockPriceIntent the stock price of {Company}
+StockPriceIntent whats the stock price of {Company}
+StockPriceIntent what is the stock price of {Company}
+StockPriceIntent what is the price of {Company}
+StockPriceIntent tell me the stock price of {Company}
+StockPriceIntent {Company} stock price
+StockPriceIntent {Company} stock
+
+StockHighIntent what is the high for {Company}
+StockHighIntent what is the high price for {Company}
+StockHighIntent what is the high of {Company}
+StockHighIntent what is the high price of {Company}
+StockHighIntent {Company} high
+
+StockLowIntent what is the low for {Company}
+StockLowIntent what is the low price for {Company}
+StockLowIntent what is the low of {Company}
+StockLowIntent what is the low price of {Company}
+StockLowIntent {Company} low
+
+PortfolioUpdateIntent update me on my portfolio
+PortfolioUpdateIntent portfolio update
+PortfolioUpdateIntent what is my portfolio update
+PortfolioUpdateIntent give me a portfolio update
+PortfolioUpdateIntent give me an update on my portfolio
+PortfolioUpdateIntent daily update
+PortfolioUpdateIntent update
+PortfolioUpdateIntent update me
+
+StockRecommendationIntent recommended stocks
+StockRecommendationIntent for recommended stocks
+StockRecommendationIntent for some recommended stocks
+StockRecommendationIntent recommend me some stocks
+StockRecommendationIntent recommend some stocks for me
+StockRecommendationIntent give me some stock recommendations
+StockRecommendationIntent give me recommendations for stocks
+StockRecommendationIntent can you give me some stock recommendations
+StockRecommendationIntent can you recommend me some stocks
+
+AMAZON.HelpIntent help
+
+AMAZON.StopIntent stop
+AMAZON.StopIntent I'm done analyzing my portfolio
+AMAZON.StopIntent I'm done with my portfolio
+AMAZON.StopIntent I'm done analyzing stocks
+AMAZON.StopIntent thank you
+AMAZON.StopIntent I'm done

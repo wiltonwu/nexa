@@ -1,72 +1,43 @@
+{
   "intents": [
     {
-      "intent": "PriceGenerator",
+      "intent": "StockPriceIntent",
       "slots": [
         {
-          "name": "Ticker",
-          "type": "TICKERS"
-        },
-        {
-          "name": "Date",
-          "type": "AMAZON.DATE"
+          "name": "Company",
+          "type": "AMAZON.Corporation"
         }
       ]
     },
     {
-      "intent": "SupportGenerator",
+      "intent": "StockHighIntent",
       "slots": [
         {
-          "name": "Ticker",
-          "type": "TICKERS"
-        },
-        {
-          "name": "Date",
-          "type": "AMAZON.DATE"
+          "name": "Company",
+          "type": "AMAZON.Corporation"
         }
       ]
     },
     {
-      "intent": "ResistanceGenerator",
+      "intent": "StockLowIntent",
       "slots": [
         {
-          "name": "Ticker",
-          "type": "TICKERS"
-        },
-        {
-          "name": "Date",
-          "type": "AMAZON.DATE"
+          "name": "Company",
+          "type": "AMAZON.Corporation"
         }
       ]
     },
     {
-      "intent": "StockGenerator",
-      "slots": [
-        {
-          "name": "Ticker",
-          "type": "TICKERS"
-        }
-      ]
+      "intent": "PortfolioUpdateIntent"
     },
     {
-      "intent": "PortfolioGenerator"
-    },
-    {
-      "intent": "DontKnowIntent"
-    },
-    {
-      "intent": "AMAZON.StartOverIntent"
-    },
-    {
-      "intent": "AMAZON.RepeatIntent"
+      "intent": "StockRecommendationIntent"
     },
     {
       "intent": "AMAZON.HelpIntent"
     },
     {
-      "intent": "AMAZON.YesIntent"
-    },
-    {
       "intent": "AMAZON.StopIntent"
     }
   ]
-}}
+}
