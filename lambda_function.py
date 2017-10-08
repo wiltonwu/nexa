@@ -194,8 +194,10 @@ def get_portfolio_update(intent, session):
     reprompt_text = None
     should_end_session = False
 
-    speech_output = 'Here is your portfolio. Nasdaq closed at 71.49 dollars. ' \
-                    'Microsoft closed at 73.35 dollars. Amazon stock closed at 1010.04 dollars.'  # Demo purpose using mock portfolio
+    # Demo purposes using mock portfolio
+    speech_output = 'Here is your portfolio. Nasdaq increased by 0.66 percentage points and closed at 71.49 dollars. ' \
+                    'Microsoft increased by 0.73 percentage points and closed at 73.35 dollars. ' \
+                    'Amazon increased by 0.5 percentage points and closed at 1010.04 dollars.'
 
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
@@ -207,8 +209,9 @@ def get_stock_recommendation_in_session(intent, session):
     reprompt_text = None
     should_end_session = False
 
+    # Demo purposes using mock portfolio
     speech_output = 'Based on your portfolio and current market performance, we recommend' \
-                    'investing in Tesla, Nvidia, and CA Technologies.'  # Demo purpose using mock portfolio
+                    'investing in Tesla, Nvidia, and CA Technologies.'
 
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
