@@ -16,7 +16,7 @@ You can use Nexa to ask about stock information and personalized recommendations
 
 #### Portfolio summaries
 * "Alexa, ask NASDAQ for my portfolio update."
-* "Alexa, aks NASDAQ to give me a portfolio update."
+* "Alexa, ask NASDAQ to give me a portfolio update."
 
 #### Personalized recommendations
 * "Alexa, ask NASDAQ for some recommended stocks."
