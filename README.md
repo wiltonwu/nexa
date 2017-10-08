@@ -3,7 +3,7 @@
 An Alexa skill for stock market information
 
 ## About
-Nexa is an Amazon Alexa skill for stock market infromation and personalized recommendations.  This repository contains all the source code for the nexa skill that can be run on your Alexa-enabled devices.
+Nexa is an Amazon Alexa skill for stock market information and personalized recommendations.  This repository contains all the source code for the Nexa skill that can be run on your Alexa-enabled devices.
 
 You can use Nexa to ask about stock information and personalized recommendations by using phrase such as...
 
