@@ -8,49 +8,9 @@ http://amzn.to/1LGWsLG
 """
 from __future__ import print_function
 
-from company_tickers import COMPANY_TICKERS
+from mappings import name_to_ticker
+from nasdaq import *
 
-import websocket
-import threading
-import time
-
-
-def on_message(ws, message):
-    print(message)
-
-def on_error(ws, error):
-    print(error)
-
-def on_close(ws):
-    print("### closed ###")
-
-def on_open(ws):
-    def run():
-        ws.send("")
-        time.sleep(1)
-        ws.close()
-    threading.Thread(target=run).start()
-
-def get_stock_dict(ticker):
-
-    websocket.enableTrace(True)
-
-    url = 'ws://34.214.11.52/stream?symbol={}&start={}&end={}'.format(ticker, '20170717', '20170717')
-
-    # Create new socket and connect to url to hit API
-    ws = websocket.WebSocket()
-    ws.connect(url)
-
-    # send information and store response
-    ws.send("")
-    stock_info = ws.recv()
-
-    stock_dict = eval(stock_info)
-
-    return stock_dict
-
-def get_close_price(ticker):
-    return get_stock_dict(ticker)["Close"]
 
 def lambda_handler(event, context):
     """ Route the incoming request based on type (LaunchRequest, IntentRequest,
@@ -110,6 +70,10 @@ def on_intent(intent_request, session):
     # Dispatch to your skill's intent handlers
     if intent_name == "StockPriceIntent":
         return get_stock_price_in_session(intent, session)
+    elif intent_name == "StockHighIntent":
+        return get_stock_high_in_session(intent, session)
+    elif intent_name == "StockLowIntent":
+        return get_stock_low_in_session(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
     else:
@@ -126,7 +90,6 @@ def on_session_ended(session_ended_request, session):
     # add cleanup logic here
 
 # --------------- Functions that control the skill's behavior ------------------
-
 
 def get_welcome_response():
     """ If we wanted to initialize the session to have some attributes we could
@@ -149,28 +112,68 @@ def get_welcome_response():
 def get_stock_price_in_session(intent, session):
     card_title = intent['name']
     session_attributes = {}
-
+    reprompt_text = None
 
     if 'Company' in intent['slots']:
         company = intent['slots']['Company']['value']
-        if company.upper() in COMPANY_TICKERS:
-            stock_price = get_close_price(COMPANY_TICKERS[company.upper()])
+        if company.upper() in name_to_ticker:
+            stock_price = get_close_price(name_to_ticker[company.upper()])
             speech_output = "The stock price of " + company + " is " + str(stock_price) + " dollars."
-            reprompt_text = None
             should_end_session = True
         else:
             speech_output = "I'm not sure what that company is. Please try again."
-            reprompt_text = "Please ask for a stock price by saying, " \
-                            "what is the stock price of Nasdaq"
             should_end_session = False
     else:
         speech_output = "I'm not sure what that company is. Please try again."
-        reprompt_text = "Please ask for a stock price by saying, " \
-                        "what is the stock price of Nasdaq"
         should_end_session = False
 
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
+
+
+def get_stock_high_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    reprompt_text = None
+
+    if 'Company' in intent['slots']:
+        company = intent['slots']['Company']['value']
+        if company.upper() in name_to_ticker:
+            high_price = get_high_price(name_to_ticker[company.upper()])
+            speech_output = "The high price of " + company + " is " + str(high_price) + " dollars."
+            should_end_session = True
+        else:
+            speech_output = "I'm not sure what that company is. Please try again."
+            should_end_session = False
+    else:
+        speech_output = "I'm not sure what that company is. Please try again."
+        should_end_session = False
+
+    return build_response(session_attributes,
+                          build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
+
+
+def get_stock_low_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    reprompt_text = None
+
+    if 'Company' in intent['slots']:
+        company = intent['slots']['Company']['value']
+        if company.upper() in name_to_ticker:
+            low_price = get_low_price(name_to_ticker[company.upper()])
+            speech_output = "The low price of " + company + " is " + str(low_price) + " dollars."
+            should_end_session = True
+        else:
+            speech_output = "I'm not sure what that company is. Please try again."
+            should_end_session = False
+    else:
+        speech_output = "I'm not sure what that company is. Please try again."
+        should_end_session = False
+
+    return build_response(session_attributes,
+                          build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
+
 
 # --------------- Helpers that build all of the responses ----------------------
 
