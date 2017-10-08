@@ -1,6 +1,3 @@
-# --------------- Helpers that build all of the responses ----------------------
-
-
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     return {
         'outputSpeech': {

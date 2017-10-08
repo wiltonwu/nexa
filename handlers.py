@@ -2,8 +2,6 @@ from builders import *
 from mappings import name_to_ticker
 from nasdaq import *
 
-# --------------- Functions that control the skill's behavior ------------------
-
 
 def get_welcome_response():
     """ If we wanted to initialize the session to have some attributes we could
@@ -34,6 +32,7 @@ def get_end_response():
 
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
+
 
 def get_stock_price_in_session(intent, session):
     card_title = intent['name']
