@@ -6,8 +6,7 @@ def load_dataframe(path, sep="::"):
     """
     Given one filepath path and one separator sep,
     it returns one dataframe with columns user (int),
-    item (int) and ratings (float). This function assumes
-    that we are working only the datasets from movielens.
+    item (int) and ratings (float).
 
 
     :type path: string
