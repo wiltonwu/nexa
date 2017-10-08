@@ -22,7 +22,7 @@ You can use Nexa to ask about stock information and personalized recommendations
 * "Alexa, ask NASDAQ for some recommended stocks."
 
 ## Development
-Nexa is written in python 2.7 and hosted on Amazon Web Services. Nexa primarily uses the [NASDAQ API](https://github.com/nasdaq/hack) for stock information retrevial. It also utilizes tensorflow to create the personalized stock recommendations with machine learning.
+Nexa is written in python 2.7 and hosted on Amazon Web Services. Nexa primarily uses the [NASDAQ API](https://github.com/nasdaq/hack) for stock information retrevial. It also utilizes Tensorflow to implement latent factor analysis through SVD models to create personalized stock recommendations based off user portfolios.
 
 ## Acknowledgements
 * [Amazon skills developer tutorial](https://developer.amazon.com/alexa-skills-kit/alexa-skill-quick-start-tutorial)
