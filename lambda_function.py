@@ -74,6 +74,10 @@ def on_intent(intent_request, session):
         return get_stock_high_in_session(intent, session)
     elif intent_name == "StockLowIntent":
         return get_stock_low_in_session(intent, session)
+    elif intent_name == "PortfolioUpdateIntent":
+        return get_portfolio_update(intent, session)
+    elif intent_name == "StockRecommendationIntent":
+        return get_stock_recommendation_in_session(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
     elif intent_name == "AMAZON.StopIntent":
@@ -92,6 +96,7 @@ def on_session_ended(session_ended_request, session):
     # add cleanup logic here
 
 # --------------- Functions that control the skill's behavior ------------------
+
 
 def get_welcome_response():
     """ If we wanted to initialize the session to have some attributes we could
@@ -182,6 +187,31 @@ def get_stock_low_in_session(intent, session):
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
 
+
+def get_portfolio_update(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    reprompt_text = None
+    should_end_session = False
+
+    speech_output = 'Here is your portfolio. Nasdaq closed at 71.49 dollars. ' \
+                    'Microsoft closed at 73.35 dollars. Amazon stock closed at 1010.04 dollars.'  # Demo purpose using mock portfolio
+
+    return build_response(session_attributes,
+                          build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
+
+
+def get_stock_recommendation_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    reprompt_text = None
+    should_end_session = False
+
+    speech_output = 'Based on your portfolio and current market performance, we recommend' \
+                    'investing in Tesla, Nvidia, and CA Technologies.'  # Demo purpose using mock portfolio
+
+    return build_response(session_attributes,
+                          build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
 
 # --------------- Helpers that build all of the responses ----------------------
 
