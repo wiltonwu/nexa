@@ -1,6 +1,5 @@
 ![alt text](https://raw.githubusercontent.com/wiltonwu/nexa/master/nexa.png)
 
-# nexa
 An Alexa skill for stock market information
 
 ## About
