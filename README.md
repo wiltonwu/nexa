@@ -24,5 +24,11 @@ You can use Nexa to ask about stock information and personalized recommendations
 ## Development
 Nexa is written in python 2.7 and hosted on Amazon Web Services. Nexa primarily uses the [NASDAQ API](https://github.com/nasdaq/hack) for stock information retrevial. It also utilizes tensorflow to create the personalized stock recommendations with machine learning.
 
+## Acknowledgements
+* [Amazon skills developer tutorial](https://developer.amazon.com/alexa-skills-kit/alexa-skill-quick-start-tutorial)
+* [Research paper on collaborating filtering models by Yehuda Koren](http://www.cs.rochester.edu/twiki/pub/Main/HarpSeminar/Factorization_Meets_the_Neighborhood-_a_Multifaceted_Collaborative_Filtering_Model.pdf)
+* [Machine learning algorithm template code by felipessalvatore](https://github.com/felipessalvatore/Recommender)
+* [Movie recommendations with deep learning](https://medium.com/deep-systems/movix-ai-movie-recommendations-using-deep-learning-5903d6a31607)
+
 ## Creators
 Nexa was developed by Wilton Wu, Justin Lu, Lawrence Jiang, and Ingrid Wu from the University of California, Berkeley for [Cal Hacks 4.0](https://calhacks.io/)
