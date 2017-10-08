@@ -1,0 +1,72 @@
+  "intents": [
+    {
+      "intent": "PriceGenerator",
+      "slots": [
+        {
+          "name": "Ticker",
+          "type": "TICKERS"
+        },
+        {
+          "name": "Date",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "SupportGenerator",
+      "slots": [
+        {
+          "name": "Ticker",
+          "type": "TICKERS"
+        },
+        {
+          "name": "Date",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "ResistanceGenerator",
+      "slots": [
+        {
+          "name": "Ticker",
+          "type": "TICKERS"
+        },
+        {
+          "name": "Date",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "StockGenerator",
+      "slots": [
+        {
+          "name": "Ticker",
+          "type": "TICKERS"
+        }
+      ]
+    },
+    {
+      "intent": "PortfolioGenerator"
+    },
+    {
+      "intent": "DontKnowIntent"
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    }
+  ]
+}}

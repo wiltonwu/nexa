@@ -1,0 +1,15 @@
+PriceGenerator price {Ticker} {Date}
+PriceGenerator price {Ticker}
+PriceGenerator price of {Ticker} {Date}
+PriceGenerator price of {Ticker}
+ResistanceGenerator get resistance for {Ticker}
+ResistanceGenerator what is the resistance for {Ticker}
+ResistanceGenerator get resistance for {Ticker} {Date}
+SupportGenerator get Support for {Ticker}
+SupportGenerator what is the Support for {Ticker}
+SupportGenerator get Support for {Ticker} {Date}
+StockGenerator give me similar Stocks to {Ticker}
+StockGenerator recommend me similar Stocks to {Ticker}
+PortfolioGenerator get my Portfolio Summary
+PortfolioGenerator get my Daily Portfolio Summary
+PortfolioGenerator tell me my Portfolio Summary
