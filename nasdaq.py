@@ -6,11 +6,14 @@ import time
 def on_message(ws, message):
     print(message)
 
+
 def on_error(ws, error):
     print(error)
 
+
 def on_close(ws):
     print("### closed ###")
+
 
 def on_open(ws):
     def run():
@@ -18,6 +21,7 @@ def on_open(ws):
         time.sleep(1)
         ws.close()
     threading.Thread(target=run).start()
+
 
 def get_stock_dict(ticker):
 
@@ -36,6 +40,7 @@ def get_stock_dict(ticker):
     stock_dict = eval(stock_info)
 
     return stock_dict
+
 
 def get_high_price(ticker):
     return get_stock_dict(ticker)["High"]
