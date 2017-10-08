@@ -48,13 +48,14 @@ def main():
 
         stock_dict = eval(stock_info)
 
-        print(stock_dict)
+        return stock_dict
 
-        ws.close()
+def get_close_price():
+    return main()["Close"]
         
 
 if __name__ == "__main__":
-   main() 
+   print(get_close_price())
 
 # def supres(ltp, n):
 #     """
